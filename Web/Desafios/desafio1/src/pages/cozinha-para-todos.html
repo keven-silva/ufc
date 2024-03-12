@@ -5,6 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozinha Para Todos</title>
+    <style>
+        .alinhar-receitas {
+            text-align: center;
+            justify-content: center;
+        }
+
+        #receitas {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            border-radius: 10px;
+        }
+
+        #receitas li {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        #receitas li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,38 +44,125 @@
             <p>Receitas de cozinha caseiras</p>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="#frango-frito">Frango Frito Caseiro</a></li>
+        <nav class="alinhar-receitas">
+            <ul id="receitas">
+                <li><a href="#frango-frito"> Frango Frito Americano </a> </li>
                 <li><a href="#lasanha-caseira">Lasanha Caseira</a></li>
                 <li><a href="#pizza-caseira">Pizza Caseira</a></li>
                 <li><a href="#macarronada-frango">Macarronada de Frango</a></li>
             </ul>
         </nav>
+        <fieldset>
+            <article id="frango-frito">
+                <h2>Frango Frito Americano</h2>
+                <p>Ingredientes:</p>
+                <ul>
+                    <li>6 coxas e 6 sobrecoxas de frango (pode ser 1 kg de frango cortado à passarinho, ou pedaços de
+                        peito,
+                        como preferir)</li>
+                    <li>3 dentes de alho</li>
+                    <li>Suco de 2 limões</li>
+                    <li>Sal a gosto</li>
+                    <li>Pimenta a gosto</li>
+                    <li>Azeite de oliva</li>
+                    <li>1 ovo</li>
+                    <li>1 xícara de leite</li>
+                    <li>1 xícara de água</li>
+                    <li>Farinha de trigo</li>
+                </ul>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/2gs4dsqZJE8?si=_AIsJvYcWuD8MMoL"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </article>
 
-        <article id="frango-frito">
-            <h2>Frango Frito Caseiro</h2>
-            <p></p>
-            <video src=""></video>
-        </article>
-        <article id="lasanha-caseira">
-            <h2>Lasanha Caseira</h2>
-            <p></p>
-            <video src=""></video>
-        </article>
-        <article id="pizza-caseira">
-            <h2>Pizza Caseira</h2>
-            <p></p>
-            <video src=""></video>
-        </article>
-        <article id="macarronada-frango">
-            <h2>Macarronada de Frango</h2>
-            <p></p>
-            <video src=""></video>
-        </article>
+        </fieldset>
+        <fieldset>
+            <article id="lasanha-caseira">
+                <h2>Lasanha Caseira</h2>
+                <p>Para o molho:</p>
+                <ul>
+                    <li>200g Cogumelo PortoBello</li>
+                    <li>1 Cebola</li>
+                    <li>4 Dentes de alho</li>
+                    <li>1 Pimenta dedo de moça</li>
+                    <li>1 Folha de louro</li>
+                    <li>2 Colheres de sopa de manteiga sem sal</li>
+                    <li>2 Colheres de sopa de farinha</li>
+                    <li>100ml Vinho branco</li>
+                    <li>700ml Leite integral</li>
+                    <li>Noz moscada a gosto</li>
+                    <li>Sal e pimenta do reino a gosto</li>
+                </ul>
+
+                <p> Para montar a lasanha: </p>
+                <ul>
+                    <li>300g de Massa fresca</li>
+                    <li>400g de Mozarela</li>
+                    <li>200g de Presunto</li>
+                    <li>Parmesão a gosto</li>
+                </ul>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0G50EI9lEqI?si=GZUWdZR55lwoS0Md"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </article>
+        </fieldset>
+
+        <fieldset>
+            <article id="pizza-caseira">
+                <h2>Pizza Caseira</h2>
+                <p>Ingredientes:</p>
+                <ul>
+                    <li>Lista com os ingredientes pizza caseira</li>
+                    <li>450g de farinha de trigo sem fermento</li>
+                    <li>1 xícara de chá de água morninha</li>
+                    <li>4 colheres de sopa de azeite</li>
+                    <li>1 colher de sopa de fermento biológico seco</li>
+                    <li>1 colher de sopa de açúcar</li>
+                    <li>1 colher de chá de sal</li>
+                </ul>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Yiy4BjS6jEc?si=bJBDpCp33JB-VtUx"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </article>
+        </fieldset>
+
+        <fieldset>
+            <article id="macarronada-frango">
+                <h2>Macarronada de Frango</h2>
+                <p>Ingredientes:</p>
+                <ul>
+                    <li>2 colheres de (sopa) de óleo</li>
+                    <li>1 cebola inteira cortada em cubinhos</li>
+                    <li>2 dentes de alho picado</li>
+                    <li>250g de peito de frango cozido e desfiado</li>
+                    <li>1 pacote de molho de tomate</li>
+                    <li>1 caixa de creme de leite</li>
+                    <li>100 g de ervilha</li>
+                    <li>100 g milho verde</li>
+                    <li>250g de macarrão</li>
+                    <li>sal (a gosto)</li>
+                    <li>pimenta do reino (a gosto)</li>
+                    <li>páprica defumada</li>
+                    <li>ket chupe</li>
+                    <li>orégano (a gosto)</li>
+                </ul>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/poAQBujoZuw?si=e9to1PiLkChjmYb9"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </article>
+        </fieldset>
     </main>
-
-    <footer>Author: Keven Silva</footer>
+    <br><br><br>
+    <hr>
+    <footer>
+        Author: Keven Silva
+        <br>
+        Email: keven.almeida@alu.ufc.br
+    </footer>
 </body>
 
 </html>
