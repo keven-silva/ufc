@@ -1,0 +1,38 @@
+body {
+    background-color: antiquewhite;
+}
+
+main {
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+}
+
+#ball {
+    background-color: rgba(206, 203, 203, 0.719);
+    height: 15rem;
+    width: 15rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    border-radius: 100%;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.699);
+}
+
+.timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#timer-value {
+    font-size: 5rem;
+    margin-top: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+}
