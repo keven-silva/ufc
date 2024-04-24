@@ -1,5 +1,4 @@
 function randomBall() {
-    const ballElement = document.getElementById("ball");
     const ball = Math.floor(Math.random() * 3) + 1;
     if (ball == 1) {
         ballElement.style.backgroundColor = "pink";
@@ -66,6 +65,8 @@ function resetGameTime() {
     ballElement.removeEventListener("click", eventBall);
     ballElement.removeEventListener("mouseleave", eventBall);
     document.removeEventListener("keypress", eventBall);
+    toque.pause();
+    toque.currentTime = 0;
 }
 
 function resetGame() {
@@ -75,8 +76,6 @@ function resetGame() {
 }
 
 function startGame() {
-    const ballElement = document.getElementById("ball");
-
     const btn = document.getElementById("start-button");
     btn.addEventListener("click", startGame);
 
@@ -92,6 +91,8 @@ function startGame() {
         ballElement.addEventListener("click", eventBall);
         ballElement.addEventListener("mouseleave", eventBall);
         document.addEventListener("keypress", eventBall);
+        // Toca o som
+        toque.play();
 
         // Reinicia o pontos
         resetPoints();
@@ -100,6 +101,9 @@ function startGame() {
         gameTime();
     }
 }
+
+const ballElement = document.getElementById("ball");
+const toque = document.getElementById("toque");
 
 const startButton = document.getElementById("start-button");
 startButton.addEventListener("click", startGame);
