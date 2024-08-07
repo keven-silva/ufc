@@ -5,18 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/utils.css">
-    <title>Desafio 04</title>
+    <title>Jogo de Adivinhação</title>
 </head>
 
 <body>
+    <header>
+        <h1>Jogo de Adivinhação</h1>
+    </header>
     <main>
-        <div class="card">
-            <input type="text" name="selectedNUmber" id="selectedNUmber" />
-            <button type="button">Enviar</button>
-        </div>
-        <div id="feedback"></div>
+        <section class="game-controls">
+            <label for="levelSelect">Escolha o nível de dificuldade:</label>
+            <select id="levelSelect">
+                <option value="easy">Fácil (1-10)</option>
+                <option value="medium">Médio (1-20)</option>
+                <option value="hard">Difícil (1-100)</option>
+            </select>
+            <input type="number" id="guessInput" placeholder="Digite um número">
+            <button id="submitBtn">Tentar</button>
+        </section>
+        <section class="game-feedback">
+            <p id="message"></p>
+            <p>Tentativas restantes: <span id="attemptsLeft">3</span></p>
+        </section>
+        <button id="restartBtn" style="display: none;">Reiniciar Jogo</button>
     </main>
+    <footer>
+        <p>&copy; 2024 Jogo de Adivinhação</p>
+    </footer>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

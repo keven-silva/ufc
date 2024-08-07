@@ -1,46 +1,91 @@
-body,
-html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
-
-main {
-    height: 100%;
+body {
+    font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #71b7e6, #5c3c69);
+    color: #333;
 }
 
-.card {
-    height: 20rem;
-    width: 25rem;
-    background-color: #f8f9fa;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+header {
+    margin-bottom: 20px;
 }
 
-input,
-button {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-
-input:hover {
-    border: 1px solid #007bff;
-}
-
-button {
-    background-color: #007bff;
+h1 {
+    font-size: 2.5em;
     color: #fff;
+}
+
+main {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.game-controls {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+input {
+    width: 94%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
     cursor: pointer;
-    width: 5rem;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+#message {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+.success {
+    color: green;
+}
+
+.danger {
+    color: red;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer p {
+    font-size: 0.9em;
+    color: #fff;
 }
