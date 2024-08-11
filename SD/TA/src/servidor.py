@@ -5,12 +5,15 @@ import sys
 class Servidor:
     prompt = "HOST"
 
-    def __init__(self, info):
+    def __init__(self, info) -> None:
         self.info = info
-        Servidor.prompt = self.info.host_name
+        Servidor.prompt = self.info.host_server
 
-    def run(self):
-        with socketserver.TCPServer((self.info.HOST_SERVER, self.info.PORT_SERVER), ComunicadorTCPHandler) as server:
+    def run(self) -> None:
+        with socketserver.TCPServer(
+            (self.info.host_server, self.info.port_server),
+            ComunicadorTCPHandler,
+        ) as server:
             try:
                 server.serve_forever()
             finally:
@@ -23,12 +26,15 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
         while run:
             try:
                 self.data = self.request.recv(1024).strip()
-                msg = self.data.decode('utf-8')
-                print(f"PEER: {self.client_address[0]}, Mensagem: {
-                      msg}\n{Servidor.prompt} >> ", end="")
+                msg = self.data.decode("utf-8")
+                print(
+                    f"PEER: {self.client_address[0]}, Mensagem:\n{msg}\n{Servidor.prompt} >> ",
+                    end="",
+                )
                 self.request.sendall(self.data.upper())
-            except:
+            except Exception as e:
                 print("******************** CONNECTION DOWN *********************")
+                print(f"Error: {e}")
                 sys.exit()
 
             if msg.lower().strip() == "exit":

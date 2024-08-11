@@ -1,11 +1,12 @@
-import threading
-import readchar
 import sys
+import threading
 from time import sleep
 
+import readchar
+
+from src.cliente import Cliente
 from src.data_com import DataCom
 from src.servidor import Servidor
-from src.cliente import Cliente
 
 
 def main():

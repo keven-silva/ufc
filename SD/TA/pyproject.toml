@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ta"
+version = "0.1.0"
+description = "Trabalho prático de sistemas distribuídos"
+authors = ["Keven Silva <keven.almeida.8179@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+readchar = "^4.1.0"
+ruff = "^0.5.7"
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+extend-exclude = ["docs"] # PEP 8 recomenda 79, mas muitos preferem 88.
+
+[tool.ruff.lint]
+preview = true
+select = ["I", "E", "F", "W", "PL", "PT"]

@@ -17,7 +17,6 @@ class DataCom:
         """
         self.size = max(num_pairs, 1)
         self.map = []
-        self._config_ports(filename)
 
         for i in range(self.size):
             server_port, client_port = i, (i + 1)
