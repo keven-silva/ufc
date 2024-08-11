@@ -4,8 +4,8 @@ import sys
 from time import sleep
 
 from src.data_com import DataCom
-from servidor import Servidor
-from cliente import Cliente
+from src.servidor import Servidor
+from src.cliente import Cliente
 
 
 def main():
