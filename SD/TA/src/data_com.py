@@ -50,9 +50,15 @@ class DataCom:
         self.sucessor = self.map[rest_of_division][1] * \
             DataCom.FAIXA + DataCom.SPORT
         self.sucessor_name = f"NO{self.port_server}"
+        # DE ACORDO COM O DO PROFESSOR, A LINHA A CIMA DEVERIA SER A LINHA ABAIXO.
+        # self.sucessor_name = f"NO{self.sucessor}"
+        
+        # DE ACORDO COM O DO PROFESSOR, DEVERIA TER A LINHA ABAIXO.
+        # self.host_name = f"NO{self.port_server}"
+        
+        # DE ACORDO COM O DO PROFESSOR, DEVERIA SER if rest_of_division -1 >= 0. NOTE A ADIÇÃO DO -1.
         ant_i = rest_of_division - 1 if rest_of_division >= 0 else self.size - 1
-        self.antecessor_name = f"NO{
-            self.map[ant_i][0] * DataCom.FAIXA + DataCom.SPORT}"
+        self.antecessor_name = f"NO{self.map[ant_i][0] * DataCom.FAIXA + DataCom.SPORT}"
         self.set_f(rest_of_division)
         return rest_of_division
 
@@ -71,6 +77,6 @@ class DataCom:
         self.fi = int(self.sucessor - DataCom.SPORT - DataCom.FAIXA + 1)
         self.fj = int(self.sucessor - DataCom.SPORT)
         # Se for o último nó
-        if i == self.size:
+        if i == self.size - 1:
             self.fi = int(self.port_server - DataCom.SPORT + 1)
             self.fj = DataCom.FAIXA * self.size

@@ -7,6 +7,7 @@ class Servidor:
 
     def __init__(self, info) -> None:
         self.info = info
+        # DE ACORDO COM O DO PROFESSOR, DEVERIA SER self.info.host_name.
         Servidor.prompt = self.info.host_server
 
     def run(self) -> None:
