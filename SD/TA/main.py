@@ -19,10 +19,10 @@ def main():
     servidor = Servidor(info)
     cliente = Cliente(info)
 
-    tserver = threading.Thread(target=servidor.run)
+    tserver = threading.Thread(target=servidor.serve_forever)
     tserver.start()
 
-    sleep(0.1)  # Melhora a precisão do tempo de espera
+    sleep(0.1)
 
     print(info)
     print("***************** [<<ENTER>>=CONECTAR] ******************")

@@ -1,24 +1,15 @@
-import socketserver
 import sys
+import socketserver
 
 
-class Servidor:
+class Servidor(socketserver.ThreadingMixIn, socketserver.TCPServer):
     prompt = "HOST"
 
     def __init__(self, info) -> None:
         self.info = info
         # DE ACORDO COM O DO PROFESSOR, DEVERIA SER self.info.host_name.
         Servidor.prompt = self.info.host_server
-
-    def run(self) -> None:
-        with socketserver.TCPServer(
-            (self.info.host_server, self.info.port_server),
-            ComunicadorTCPHandler,
-        ) as server:
-            try:
-                server.serve_forever()
-            finally:
-                server.shutdown()
+        super().__init__((info.host_server, info.port_server), ComunicadorTCPHandler)
 
 
 class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
@@ -29,21 +20,13 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                 self.data = self.request.recv(1024).strip()
                 msg = self.data.decode("utf-8")
                 print(
-                    f"PEER: {self.client_address[0]}, Mensagem:\n{msg}\n{Servidor.prompt} >> ",
+                    f"PEER: {self.client_address[0]}, Mensagem:\n{msg}\n{self.server.info.host_server} >> ",
                     end="",
                 )
 
-                # Parse the received message
-                if msg.startswith("[") and msg.endswith("]"):
-                    key, ip, port, command = eval(msg)
-                    if command == "detentor":
-                        # Simulate the lookup for the key owner
-                        peer_response = f"[{key}, '{ip}', {port}, 'NÓ (responsável)']"
-                        self.request.sendall(peer_response.encode("utf-8"))
-                    else:
-                        self.request.sendall(self.data.upper())
-                else:
-                    self.request.sendall(self.data.upper())
+                # Redirecionamento de mensagens com base na chave
+                response = self.process_message(msg)
+                self.request.sendall(response.encode("utf-8"))
 
             except Exception as e:
                 print("******************** CONNECTION DOWN *********************")
@@ -51,5 +34,32 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                 sys.exit()
 
             if msg.lower().strip() == "exit":
-                print(f"Antecessor({Servidor.prompt}) saiu (e informou)!!!")
+                print(
+                    f"Antecessor({self.server.info.host_server}) saiu (e informou)!!!"
+                )
                 sys.exit()
+
+    def process_message(self, msg):
+        """Processa a mensagem recebida e decide se redireciona ou responde diretamente."""
+        try:
+            parts = eval(msg)
+            key = int(parts[0])
+            command = parts[3].lower()
+
+            if self.is_responsible(key):
+                if command == "detentor":
+                    return f"Chave {key} encontrada no nó {self.server.info.host_server}:{self.server.info.port_server}"
+                else:
+                    return f"Comando '{command}' não reconhecido para a chave {key}."
+            else:
+                successor, successor_name = self.server.info.find_successor(key)
+                print(
+                    f"Redirecionando a chave {key} para {successor_name} ({successor})"
+                )
+                return f"Redirecionando para {successor_name} ({successor})"
+        except Exception as e:
+            return f"Erro ao processar mensagem: {str(e)}"
+
+    def is_responsible(self, key):
+        """Verifica se o nó atual é responsável pela chave `key`."""
+        return self.server.info.fi <= key <= self.server.info.fj
