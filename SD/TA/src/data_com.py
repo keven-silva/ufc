@@ -34,10 +34,10 @@ class DataCom:
         """
         _port = -1
         try:
-            with open(filename, 'r') as f:
+            with open(filename, "r") as f:
                 _port = int(f.read())
 
-            with open(filename, 'w') as f:
+            with open(filename, "w") as f:
                 f.write(str(_port + 1))
         except IOError:
             print("Erro ao ler/gravar arquivo de configuração!")
@@ -45,17 +45,15 @@ class DataCom:
 
         rest_of_division = _port % self.size
         self.host_server = DataCom.SHOST
-        self.port_server = self.map[rest_of_division][0] * \
-            DataCom.FAIXA + DataCom.SPORT
-        self.sucessor = self.map[rest_of_division][1] * \
-            DataCom.FAIXA + DataCom.SPORT
+        self.port_server = self.map[rest_of_division][0] * DataCom.FAIXA + DataCom.SPORT
+        self.sucessor = self.map[rest_of_division][1] * DataCom.FAIXA + DataCom.SPORT
         self.sucessor_name = f"NO{self.port_server}"
         # DE ACORDO COM O DO PROFESSOR, A LINHA A CIMA DEVERIA SER A LINHA ABAIXO.
         # self.sucessor_name = f"NO{self.sucessor}"
-        
+
         # DE ACORDO COM O DO PROFESSOR, DEVERIA TER A LINHA ABAIXO.
         # self.host_name = f"NO{self.port_server}"
-        
+
         # DE ACORDO COM O DO PROFESSOR, DEVERIA SER if rest_of_division -1 >= 0. NOTE A ADIÇÃO DO -1.
         ant_i = rest_of_division - 1 if rest_of_division >= 0 else self.size - 1
         self.antecessor_name = f"NO{self.map[ant_i][0] * DataCom.FAIXA + DataCom.SPORT}"

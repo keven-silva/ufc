@@ -26,11 +26,16 @@ def main():
     print(info)
     print("***************** [<<ENTER>>=CONECTAR] ******************")
 
-    enter = readchar.readkey() == '\r'
+    enter = readchar.readkey() in ['\r', '\n']
     if enter:
         print("****************** [<<EXIT>>=SAIR] *********************")
         tclient = threading.Thread(target=cliente.run)
         tclient.start()
+
+        # Testando Desafio 1 - Enviar uma consulta de chave K
+        chave = 28
+        resultado = cliente.send_query(chave)
+        print(f"Resposta para chave {chave}: {resultado}")
 
         tclient.join()
         tserver.join()

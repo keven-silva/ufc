@@ -32,7 +32,19 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                     f"PEER: {self.client_address[0]}, Mensagem:\n{msg}\n{Servidor.prompt} >> ",
                     end="",
                 )
-                self.request.sendall(self.data.upper())
+
+                # Parse the received message
+                if msg.startswith("[") and msg.endswith("]"):
+                    key, ip, port, command = eval(msg)
+                    if command == "detentor":
+                        # Simulate the lookup for the key owner
+                        peer_response = f"[{key}, '{ip}', {port}, 'NÓ (responsável)']"
+                        self.request.sendall(peer_response.encode("utf-8"))
+                    else:
+                        self.request.sendall(self.data.upper())
+                else:
+                    self.request.sendall(self.data.upper())
+
             except Exception as e:
                 print("******************** CONNECTION DOWN *********************")
                 print(f"Error: {e}")
