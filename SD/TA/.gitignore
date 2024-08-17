@@ -2,10 +2,11 @@
 venv/
 .env
 
+.vscode/
+
 __pycache__
+.ruff_cache
 
 .python-version
-
-.vscode/
 
 portas.txt

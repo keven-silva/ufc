@@ -11,8 +11,9 @@ from src.servidor import Servidor
 
 def main():
     numero_de_pares = 2
-    if len(sys.argv) >= 2:
-        numero_de_pares = int(sys.argv[1])
+    chave = None
+    numero_de_pares = int(sys.argv[1]) if len(sys.argv) >= 2 else numero_de_pares
+    chave = int(sys.argv[2]) if len(sys.argv) >= 3 else None
 
     info = DataCom("portas.txt", numero_de_pares)
     servidor = Servidor(info)
@@ -26,16 +27,15 @@ def main():
     print(info)
     print("***************** [<<ENTER>>=CONECTAR] ******************")
 
-    enter = readchar.readkey() in ['\r', '\n']
+    enter = readchar.readkey() in ["\r", "\n"]
     if enter:
         print("****************** [<<EXIT>>=SAIR] *********************")
         tclient = threading.Thread(target=cliente.run)
         tclient.start()
 
-        # Testando Desafio 1 - Enviar uma consulta de chave K
-        chave = 28
-        resultado = cliente.send_query(chave)
-        print(f"Resposta para chave {chave}: {resultado}")
+        if chave is not None:
+            resultado = cliente.send_query(chave)
+            print(f"Resposta para chave {chave}: {resultado}")
 
         tclient.join()
         tserver.join()

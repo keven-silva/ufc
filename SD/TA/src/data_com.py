@@ -1,4 +1,5 @@
 import sys
+import math
 
 
 class DataCom:
@@ -17,6 +18,7 @@ class DataCom:
         """
         self.size = max(num_pairs, 1)
         self.map = []
+        self.finger_table = []
 
         for i in range(self.size):
             server_port, client_port = i, (i + 1)
@@ -24,9 +26,10 @@ class DataCom:
                 self.map.append([server_port, client_port])
             else:
                 self.map.append([server_port, 0])
-        self.idx_map = self._config_ports(filename)
+        self.idx_map = self.__config_ports(filename)
+        self.__calculate_finger_table()
 
-    def _config_ports(self, filename):
+    def __config_ports(self, filename):
         """Lê e grava as portas do arquivo de configuração.
 
         Args:
@@ -60,11 +63,42 @@ class DataCom:
         self.set_f(rest_of_division)
         return rest_of_division
 
+    def __calculate_finger_table(self):
+        """Calcula a tabela de 'finger' para o nó atual."""
+        m = int(math.log2(self.size))  # Define o tamanho da finger table
+        current_node = self.port_server
+
+        for i in range(m):
+            start = (current_node + 2**i) % (self.size * DataCom.FAIXA) + DataCom.SPORT
+            # Determina o próximo nó na tabela
+            successor_idx = (self.idx_map + 2**i) % self.size
+            successor = self.map[successor_idx][0] * DataCom.FAIXA + DataCom.SPORT
+            self.finger_table.append(
+                {
+                    "start": start,
+                    "successor": successor,
+                    "successor_name": f"NO{successor}",
+                }
+            )
+
+    def find_successor(self, key):
+        """Encontra o nó sucessor responsável pela chave `key`."""
+        for entry in reversed(self.finger_table):
+            if entry["start"] <= key:
+                return entry["successor"], entry["successor_name"]
+        return self.sucessor, self.sucessor_name  # Retorna o sucessor padrão
+
     def __repr__(self):
         """Retorna uma representação em string do objeto."""
         s = f"""Servidor({self.host_server}), PortServer({self.port_server}), SUCESSO({
             self.sucessor}), -> FAIXA [{self.fi}-{self.fj}] ...\n"""
-        return f"""{s}\nCliente vais conectar assim: ESCUTA({self.host_server}), SUCESSOR({self.sucessor}) OK!"""
+        ft_str = "\n".join(
+            [
+                f"start: {entry['start']}, successor: {entry['successor_name']}"
+                for entry in self.finger_table
+            ]
+        )
+        return f"""{s}\nFinger Table:\n{ft_str}\nCliente vais conectar assim: ESCUTA({self.host_server}), SUCESSOR({self.sucessor}) OK!"""
 
     def set_f(self, i: int):
         """Configura os valores de Fi e Fj.

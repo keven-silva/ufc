@@ -20,7 +20,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.ruff]
 line-length = 88
-extend-exclude = ["docs"] # PEP 8 recomenda 79, mas muitos preferem 88.
+extend-exclude = ["docs"]
 
 [tool.ruff.lint]
 preview = true

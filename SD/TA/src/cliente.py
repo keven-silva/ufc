@@ -26,15 +26,17 @@ class Cliente:
         if self.connected:
             rec_msg = self.sc.recv(1024).strip()
             rec_msg = rec_msg.decode("utf-8")
-            print(f"SUCESSOR({self.info.sucessor_name}) >> {rec_msg}")
+            return rec_msg
+            # print(f"SUCESSOR({self.info.sucessor_name}) >> {rec_msg}")
 
     def send_query(self, key, command="detentor"):
         """Envia uma mensagem ao sucessor perguntando quem é o detentor da chave `key`."""
         if self.connected:
+            successor, successor_name = self.info.find_successor(key)
             query = f"[{key}, '{self.info.host_server}', {self.info.port_server}, '{command}']"
             self.send(query)
             response = self.receive()
-            return response
+            return f"Responsável pela chave {key}: {successor_name} ({successor}) - Resposta: {response}"
 
     def close(self):
         self.open()
