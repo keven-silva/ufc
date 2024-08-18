@@ -28,7 +28,7 @@ class Cliente:
                 self.send_query(key)
                 response = self.receive()
                 if response:
-                    print(f"Detentor da chave {key}: {response}")
+                    self.process_response(response)
 
     def send(self, msg):
         if self.connected:
@@ -47,31 +47,13 @@ class Cliente:
             query = f"[{key}, '{self.info.host_server}', {self.info.port_server}, '{command}']"
             self.send(query)
 
-            response = self.receive()
-            return response
-
-    # def extract_new_successor_info(self, response):
-    #     """Extrai as informações do próximo nó a partir da resposta de redirecionamento."""
-    #     try:
-    #         parts = response.split()
-    #         successor_name = parts[2]
-    #         successor_port = int(parts[-1].strip("()"))
-    #         return {"successor_name": successor_name, "successor": successor_port}
-    #     except Exception as e:
-    #         raise ValueError(f"Erro ao extrair informações do redirecionamento: {e}")
-
-    # def open_to_new_successor(self, new_succ_info):
-    #     """Abre uma nova conexão com o próximo sucessor."""
-    #     self.sc.close()
-    #     self.sc = socket.socket()
-    #     self.connected = False
-    #     try:
-    #         self.sc.connect((self.info.host_server, new_succ_info["successor"]))
-    #         self.connected = True
-    #     except IOError:
-    #         print(
-    #             f"Falhou ao conectar com o novo sucessor {new_succ_info['successor_name']} ({new_succ_info['successor']})"
-    #         )
+    def process_response(self, response):
+        """Processa a resposta recebida e exibe quem é o detentor da chave."""
+        if response.startswith("[") and response.endswith("]"):
+            key, detentor_ip, detentor_port, _ = eval(response)
+            print(
+                f"O detentor da chave {key} é o nó com IP {detentor_ip} e porta {detentor_port}."
+            )
 
     def close(self):
         self.open()
