@@ -3,12 +3,12 @@ import socket
 import socketserver
 
 
-class Servidor(socketserver.ThreadingMixIn, socketserver.TCPServer):
+class Server(socketserver.ThreadingMixIn, socketserver.TCPServer):
     prompt = "HOST"
 
     def __init__(self, _info) -> None:
         self.info = _info
-        Servidor.prompt = self.info.host_name
+        Server.prompt = self.info.host_name
         # Passa a info para o ComunicadorTCPHandler via um lambda
         handler = lambda *args, **kwargs: ComunicadorTCPHandler(
             self.info, *args, **kwargs
@@ -38,7 +38,7 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                     "PEER: {0}, Mensagem:\n{1}\n{2} >> ".format(
                         self.client_address[0],
                         msg,
-                        Servidor.prompt,
+                        Server.prompt,
                     ),
                     end="",
                 )
@@ -66,7 +66,7 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                 sys.exit()
 
             if str(msg).lower().strip() == "exit":
-                print(f"Antecessor({0}) saiu (e informou)!!!".format(Servidor.prompt))
+                print(f"Antecessor({0}) saiu (e informou)!!!".format(Server.prompt))
                 sys.exit()
 
     def is_responsible_for_key(self, key):

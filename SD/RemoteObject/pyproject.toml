@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "remoteobject"
+version = "0.1.0"
+description = ""
+authors = ["Keven Silva <keven.almeida.8179@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyro4 = "^4.82"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

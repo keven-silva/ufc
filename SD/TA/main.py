@@ -4,9 +4,9 @@ from time import sleep
 
 import readchar
 
-from src.cliente import Cliente
+from src.client import Client
 from src.data_com import DataCom
-from src.servidor import Servidor
+from src.server import Server
 
 
 def main():
@@ -14,8 +14,8 @@ def main():
     chave = None
     numero_de_pares = int(sys.argv[1]) if len(sys.argv) >= 2 else numero_de_pares
     info = DataCom("portas.txt", numero_de_pares)
-    servidor = Servidor(info)
-    cliente = Cliente(info)
+    servidor = Server(info)
+    cliente = Client(info)
 
     tserver = threading.Thread(target=servidor.run)
     tserver.start()
@@ -26,16 +26,16 @@ def main():
     print("***************** [<<ENTER>>=CONECTAR] ******************")
     print("***************** [<<D>>=DETECTAR] **********************")
 
-    key = readchar.readkey() 
+    key = readchar.readkey()
     if key in ["\r", "\n"]:
         print("****************** [<<EXIT>>=SAIR] *********************")
         tclient = threading.Thread(target=cliente.run)
         tclient.start()
-        
+
         tclient.join()
         tserver.join()
-        
-    elif key.lower() == 'd':
+
+    elif key.lower() == "d":
         # Novo código: Permitir que o usuário digite a chave a ser detectada
         print("****************** [<<-1>>=SAIR] *********************")
         tclient2 = threading.Thread(target=cliente.run_detentor)

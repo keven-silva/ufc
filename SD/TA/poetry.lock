@@ -98,6 +98,20 @@ pyyaml = ">=5.1"
 virtualenv = ">=20.10.0"
 
 [[package]]
+name = "pyro4"
+version = "4.82"
+description = "distributed object middleware for Python (RPC)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "Pyro4-4.82-py2.py3-none-any.whl", hash = "sha256:bbf5d7413e616d3e1978a05d7caca62eec59692d2dab75dd22a4426ef9b8a691"},
+    {file = "Pyro4-4.82.tar.gz", hash = "sha256:511f5b0804e92dd77dc33adf9c947787e3f9e9c5a96b12162f0557a7c4ce21fb"},
+]
+
+[package.dependencies]
+serpent = {version = ">=1.27", markers = "python_version >= \"3.2\""}
+
+[[package]]
 name = "pyyaml"
 version = "6.0.2"
 description = "YAML parser and emitter for Python"
@@ -198,6 +212,17 @@ files = [
 ]
 
 [[package]]
+name = "serpent"
+version = "1.41"
+description = "Serialization based on ast.literal_eval"
+optional = false
+python-versions = ">=3.2"
+files = [
+    {file = "serpent-1.41-py3-none-any.whl", hash = "sha256:5fd776b3420441985bc10679564c2c9b4a19f77bea59f018e473441d98ae5dd7"},
+    {file = "serpent-1.41.tar.gz", hash = "sha256:0407035fe3c6644387d48cff1467d5aa9feff814d07372b78677ed0ee3ed7095"},
+]
+
+[[package]]
 name = "virtualenv"
 version = "20.26.3"
 description = "Virtual Python Environment builder"
@@ -220,4 +245,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "49195f3d1bd11d8b7ea6bd430c7fd168ab7d86b21a4952f7ed7f104c47852045"
+content-hash = "846651f38e6a18317a88df0b33028518005befa022c6c26665fa42709e76984c"

@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 readchar = "^4.1.0"
 ruff = "^0.5.7"
+pyro4 = "^4.82"
 
 
 [tool.poetry.group.dev.dependencies]
