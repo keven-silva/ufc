@@ -32,19 +32,19 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
             try:
                 self.data = self.request.recv(1024).strip()
                 msg = self.data.decode("utf-8")
-                print(
-                    "PEER: {0}, Mensagem:\n{1}\n{2} >> ".format(
-                        self.client_address[0],
-                        msg,
-                        Server.prompt,
-                    ),
-                    end="",
-                )
+                # print(
+                #     "PEER: {0}, Mensagem:\n{1}\n{2} >> ".format(
+                #         self.client_address[0],
+                #         msg,
+                #         Server.prompt,
+                #     ),
+                #     end="",
+                # )
 
                 # Evitar loop ao reprocessar mensagens de resposta
                 if "resposta" in msg:
                     print(f"Resposta recebida: {msg}")
-                    return  # Termina o processamento da resposta
+                    return self.request.sendall(self.data.upper())
 
                 # Processa a mensagem recebida
                 if msg.startswith("[") and msg.endswith("]"):

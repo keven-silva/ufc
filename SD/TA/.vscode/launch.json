@@ -5,13 +5,43 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python Debugger Project",
+            "name": "No 1",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/main.py",
             "console": "integratedTerminal",
             "args": [
-                "2",
+                "4",
+            ]
+        },
+        {
+            "name": "No 2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "4",
+            ]
+        },
+        {
+            "name": "No 3",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "4",
+            ]
+        },
+        {
+            "name": "No 4",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "args": [
+                "4",
             ]
         }
     ]
