@@ -24,7 +24,6 @@ def main():
 
     print(info)
     print("***************** [<<ENTER>>=CONECTAR] ******************")
-    print("***************** [<<D>>=DETECTAR] **********************")
 
     key = readchar.readkey()
     if key in ["\r", "\n"]:
@@ -34,20 +33,6 @@ def main():
 
         tclient.join()
         tserver.join()
-
-    elif key.lower() == "d":
-        # Novo código: Permitir que o usuário digite a chave a ser detectada
-        print("****************** [<<-1>>=SAIR] *********************")
-        tclient2 = threading.Thread(target=cliente.run_detentor)
-        tclient2.start()
-
-        tclient2.join()
-        tserver.join()
-        # Agora oferece uma nova escolha de ação ao usuário
-        print("Escolha a próxima ação:")
-        print("***************** [<<ENTER>>=CONECTAR] ******************")
-        print("***************** [<<D>>=DETECTAR NOVAMENTE] **********************")
-
     else:
         print("************ ABORT ANTES DE CONECTAR ********************")
         cliente.close()

@@ -6,29 +6,22 @@ class Client:
         self.sc = socket.socket()
         self.info = info
         self.connected = False
-        self.prompt = f"{self.info.host_server} :>> "
+        self.prompt = "Digite a chave que deseja encontrar o detentor :>> "
 
     def run(self):
         self.open()
         while True:
-            msg = input(self.prompt).strip()
-            if msg:
-                self.send(msg)
-                self.receive()
-            if str(msg).lower() == "exit":
-                break
+            try:
+                msg = int(input(self.prompt).strip())
+                if msg:
+                    self.send_query(msg)
+                    response = self.receive()
+                    if response:
+                        self.process_response(response)
 
-    def run_detentor(self):
-        self.open()
-        while True:
-            key = int(input("Digite a chave que deseja encontrar o detentor: ").strip())
-            if key == -1:
-                break
-            if key:
-                self.send_query(key)
-                response = self.receive()
-                if response:
-                    self.process_response(response)
+            except TypeError:
+                if str(msg).lower() == "exit":
+                    break
 
     def send(self, msg):
         if self.connected:
@@ -52,7 +45,7 @@ class Client:
         if response.startswith("[") and response.endswith("]"):
             key, detentor_ip, detentor_port, _ = eval(response)
             print(
-                f"O detentor da chave {key} é o nó com IP {detentor_ip} e porta {detentor_port}."
+                f"\nO detentor da chave {key} é o nó com IP {detentor_ip} e porta {detentor_port}.\n"
             )
 
     def close(self):

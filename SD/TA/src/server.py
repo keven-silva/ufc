@@ -3,48 +3,40 @@ import socket
 import socketserver
 
 
-class Server(socketserver.ThreadingMixIn, socketserver.TCPServer):
+class Server:
     prompt = "HOST"
+    info = None
 
     def __init__(self, _info) -> None:
         self.info = _info
+        Server.info = _info
         Server.prompt = self.info.host_name
-        # Passa a info para o ComunicadorTCPHandler via um lambda
-        handler = lambda *args, **kwargs: ComunicadorTCPHandler(
-            self.info, *args, **kwargs
-        )
-        super().__init__((self.info.host_server, self.info.port_server), handler)
 
     def run(self):
-        try:
-            self.serve_forever()
-        finally:
-            self.shutdown()
+        with socketserver.TCPServer(
+            (self.info.host_server, self.info.port_server),
+            ComunicadorTCPHandler,
+        ) as server:
+            try:
+                server.serve_forever()
+            finally:
+                server.shutdown()
 
 
 class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
-    def __init__(self, info, *args, **kwargs):
-        self.info = info  # Armazena a informação passada
-        super().__init__(*args, **kwargs)  # Chama o construtor da superclasse
-
     def handle(self):
-        while True:
+        self.info = Server.info
+
+        run, msg = True, ""
+        while run:
             try:
                 self.data = self.request.recv(1024).strip()
                 msg = self.data.decode("utf-8")
-                # print(
-                #     "PEER: {0}, Mensagem:\n{1}\n{2} >> ".format(
-                #         self.client_address[0],
-                #         msg,
-                #         Server.prompt,
-                #     ),
-                #     end="",
-                # )
 
                 # Evitar loop ao reprocessar mensagens de resposta
                 if "resposta" in msg:
                     print(f"Resposta recebida: {msg}")
-                    return self.request.sendall(self.data.upper())
+                    self.request.sendall(self.data)
 
                 # Processa a mensagem recebida
                 if msg.startswith("[") and msg.endswith("]"):
@@ -62,10 +54,6 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
                             self.forward_request_to_successor(
                                 key, original_ip, original_port, command, successor
                             )
-                    else:
-                        self.request.sendall(self.data.upper())
-                else:
-                    self.request.sendall(self.data.upper())
 
             except Exception as e:
                 print("******************** CONNECTION DOWN *********************")
