@@ -66,7 +66,7 @@ class DataCom:
         current_node = self.port_server
 
         for i in range(m):
-            start = (current_node + 2**i) % (self.size * DataCom.FAIXA) + DataCom.SPORT
+            start = (current_node + 2**i) % (self.size * DataCom.FAIXA)
             # Determina o próximo nó na tabela
             successor_idx = (self.idx_map + 2**i) % self.size
             successor = self.map[successor_idx][0] * DataCom.FAIXA + DataCom.SPORT
@@ -74,16 +74,23 @@ class DataCom:
                 {
                     "start": start,
                     "successor": successor,
-                    "successor_name": f"NO{successor}",
+                    "successor_name": f"NO[{successor}]",
                 }
             )
 
     def find_successor(self, key):
         """Encontra o nó sucessor responsável pela chave `key`."""
+        # Verifica se o nó atual é responsável pela chave
+        if self.fi <= key <= self.fj:
+            return self.port_server, self.host_name
+
+        # Busca na Finger Table
         for entry in reversed(self.finger_table):
-            if entry["start"] <= key:
+            if entry["start"] <= key < self.sucessor:
                 return entry["successor"], entry["successor_name"]
-        return self.sucessor, self.sucessor_name  # Retorna o sucessor padrão
+
+        # Se a Finger Table não contém um sucessor adequado, encaminha para o sucessor direto
+        return self.sucessor, self.sucessor_name
 
     def __repr__(self):
         """Retorna uma representação em string do objeto."""
