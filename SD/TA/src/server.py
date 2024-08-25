@@ -31,8 +31,8 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
         run, msg = True, ""
         while run:
             try:
-                if len(self.response) > 0: # Caso o nó solicitante seja o detentor
-                    print(self.response)
+                if len(self.response) > 0 and self.info.port_server == original_port: # Caso o nó solicitante seja o detentor
+                    print(f"Resposta recebida: {self.response}")
                     
                 self.data = self.request.recv(1024).strip()
                 msg = self.data.decode("utf-8")
