@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "trabalho-final"
+version = "0.1.0"
+description = ""
+authors = ["keven silva <keven.almeida.8179@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.2"
+uvicorn = "^0.30.6"
+gunicorn = "^23.0.0"
+pydantic-settings = "^2.4.0"
+loguru = "^0.7.2"
+jinja2 = "^3.1.4"
+yarl = "^1.9.4"
+httptools = "^0.6.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

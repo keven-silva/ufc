@@ -1,0 +1,30 @@
+{% extends "exception/base-exceptions.html" %}
+
+{% block title %} Não Autorizado {% endblock title %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="py-3" style="margin-top: 14rem;">
+            <div class="text-center">
+                <p class="lead">Não Autorizado</p>
+                <p>Você não tem permissão para acessar esta página.</p>
+                <p>
+                    Por favor, verifique o URL ou retorne à <a href="/">página inicial</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center position-absolute top-50 start-50 translate-middle">
+        <div class="px-4 text-center">
+            <h1>403</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-top: 10rem;">
+        <div class="py-4 text-center ">
+            <a href="/">
+                <i class="fas fa-arrow-left me-1"></i>
+                volte para Inicio
+            </a>
+        </div>
+    </div>
+{% endblock %}

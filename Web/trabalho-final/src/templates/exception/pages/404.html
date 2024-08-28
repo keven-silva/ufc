@@ -1,0 +1,32 @@
+{% extends "exception/base-exceptions.html" %}
+
+
+{% block title %}Page Not Found{% endblock %}
+
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="py-3" style="margin-top: 14rem;">
+        <div class="text-center">
+            <p class="lead">Oops! Página não encontrada</p>
+            <p>A página que você está procurando pode ter sido removida, renomeada ou está temporariamente indisponível.
+            </p>
+            <p>Por favor, verifique o URL ou retorne à <a href="/">página inicial</a>.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center position-absolute top-50 start-50 translate-middle">
+    <div class="px-4 text-center">
+        <h1>404</h1>
+    </div>
+</div>
+<div class="row justify-content-center" style="margin-top: 10rem;">
+    <div class="py-4 text-center ">
+        <a href="/">
+            <i class="fas fa-arrow-left me-1"></i>
+            volte para Inicio
+        </a>
+    </div>
+</div>
+{% endblock %}
