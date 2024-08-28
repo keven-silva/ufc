@@ -26,17 +26,21 @@ class Server:
 class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
     def handle(self):
         self.info = Server.info
+        self.response = ''
 
         run, msg = True, ""
         while run:
             try:
+                if len(self.response) > 0 and self.info.port_server == original_port: # Caso o nó solicitante seja o detentor
+                    print(f"Resposta recebida: {self.response}")
+                    
                 self.data = self.request.recv(1024).strip()
                 msg = self.data.decode("utf-8")
 
                 # Evitar loop ao reprocessar mensagens de resposta
                 if "resposta" in msg:
                     print(f"Resposta recebida: {msg}")
-                    self.request.sendall(self.data)
+                    # self.request.sendall(self.data)
 
                 # Processa a mensagem recebida
                 if msg.startswith("[") and msg.endswith("]"):
@@ -92,6 +96,7 @@ class ComunicadorTCPHandler(socketserver.BaseRequestHandler):
         try:
             with socket.socket() as s:
                 s.connect((original_ip, original_port))
+                self.response = response
                 s.sendall(response.encode("utf-8"))
         except IOError as e:
             print(f"Erro ao enviar resposta ao solicitante original: {e}")

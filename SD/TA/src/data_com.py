@@ -18,7 +18,7 @@ class DataCom:
         """
         self.size = max(num_pairs, 1)
         self.map = []
-        self.finger_table = []
+        self.finger_table = {}
 
         for a in range(self.size):
             server_port, client_port = a, (a + 1)
@@ -62,33 +62,51 @@ class DataCom:
 
     def __calculate_finger_table(self):
         """Calcula a tabela de 'finger' para o nó atual."""
-        m = int(math.log2(self.size))  # Define o tamanho da finger table
-        current_node = self.port_server
+        m = self.size  # Número de nós
+        
+        current_node = self.port_server # Ex: 3120
+        current_node_str = str(current_node)[1:]  # '120'
+        current_node_modified = int(current_node_str) # 120
 
         for i in range(m):
-            start = (current_node + 2**i) % (self.size * DataCom.FAIXA)
-            # Determina o próximo nó na tabela
-            successor_idx = (self.idx_map + 2**i) % self.size
-            successor = self.map[successor_idx][0] * DataCom.FAIXA + DataCom.SPORT
-            self.finger_table.append(
-                {
-                    "start": start,
-                    "successor": successor,
-                    "successor_name": f"NO[{successor}]",
-                }
-            )
-
+            if self.idx_map == i:
+                print(f"Finger Table ({current_node_modified}):")
+                
+                j = 0
+                while current_node_modified + 2**j < m * DataCom.FAIXA:
+                    calcCurrentLine = current_node_modified + 2**j
+                    responsavel = 0
+                    
+                    while calcCurrentLine > responsavel:
+                        responsavel += DataCom.FAIXA
+                        
+                    # if responsavel == m * DataCom.FAIXA: # Se o NO for responsável pelos seus antecessores
+                    #     responsavel = 0
+                    
+                    responsavel-= DataCom.FAIXA # Se o NO for responsável pelos seus sucessores
+                    self.finger_table[calcCurrentLine] = responsavel
+                    
+                    print(f"{current_node_modified} + 2^{j} = {calcCurrentLine} => {responsavel}")
+                    
+                    j += 1
+                    
     def find_successor(self, key):
         """Encontra o nó sucessor responsável pela chave `key`."""
-        # Verifica se o nó atual é responsável pela chave
-        if self.fi <= key <= self.fj:
-            return self.port_server, self.host_name
+        
+        fingerTableDict = self.finger_table
+        
+        # Convertendo o dicionário para uma lista de listas e invertendo
+        fingerTableList = [[key, value] for key, value in fingerTableDict.items()]
+        fingerTableList.reverse()
 
-        # Busca na Finger Table
-        for entry in reversed(self.finger_table):
-            if entry["start"] <= key < self.sucessor:
-                return entry["successor"], entry["successor_name"]
+        for item in fingerTableList:
+            if item[1] < key:
+                sucessor = DataCom.SPORT + item[1]
+                sucessor_name = f"NO[{sucessor}]"
 
+                print(f"Realizado pela Finger Table")
+                return sucessor, sucessor_name
+                
         # Se a Finger Table não contém um sucessor adequado, encaminha para o sucessor direto
         return self.sucessor, self.sucessor_name
 
@@ -101,19 +119,11 @@ class DataCom:
             self.fi,
             self.fj,
         )
-
-        ft_str = "\n".join(
-            [
-                f"start: {entry['start']}, successor: {entry['successor_name']}"
-                for entry in self.finger_table
-            ]
-        )
         return (
             s
-            + "\nCliente vais conectar assim: ESCUTA({0}), SUCESSOR({1}) OK!\nFinger Table:\n{2}".format(
+            + "\nCliente vais conectar assim: ESCUTA({0}), SUCESSOR({1}) OK!".format(
                 self.host_name,
                 self.sucessor_name,
-                ft_str,
             )
         )
 
