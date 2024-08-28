@@ -1,0 +1,57 @@
+<section>
+    <div class="bg-green-default p-4 rounded-lg mb-4 grid grid-cols-2">
+        <div class="flex flex-col justify-end p-3">
+            <p class="text-gray-100 mb-10">23 de Agosto,  2024</p>
+            <h2 class="text-4xl font-semibold">Bem-vindo ao Previna+</h2>
+            <p class="text-gray-100 mt-2">O Previna+ é uma página dedicada à conscientização e ao combate à dengue...</p>
+        </div>
+        <img src="{{ url_for('static', path='assets/img/inseto.png') }}"
+             alt="Imagem de inseto"
+             class="justify-self-end"
+             height="250"
+             width="250" />
+    </div>
+    <div class="my-8 mx-3">
+        <h3 class="text-xl font-semibold">Juntos Contra a Dengue</h3>
+        <p class="ml-2">
+            O Previna+ é uma página dedicada à conscientização e ao combate à dengue. Aqui, você encontrará informações essenciais para entender de forma simples e clara o problema da dengue, suas causas, os impactos que essa doença traz à saúde pública, as graves consequências para a população, e, principalmente, as formas eficazes de prevenção.  Juntos, podemos prevenir e salvar vidas.
+        </p>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-around gap-8 lg:gap-4">
+        <!-- Seção de Prevenção e Perguntas Frequentes -->
+        <div class="flex flex-col lg:flex-row items-stretch gap-4 mb-12 w-full lg:w-3/4">
+            <!-- Card 1: Saiba como prevenir -->
+            <div class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full lg:w-1/2 self-end">
+                <div>
+                    <h3 class="font-semibold mb-6">Saiba como prevenir</h3>
+                    <button class="bg-green-default text-white w-24 py-1 px-4 rounded-full">Ver</button>
+                </div>
+                <img src="{{ url_for('static', path='assets/img/pc.png') }}"
+                     alt="Imagem de pc"
+                     class="justify-self-end"
+                     height="90"
+                     width="90" />
+            </div>
+            <!-- Card 2: Perguntas Frequentes -->
+            <div class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full lg:w-1/2 self-end">
+                <div>
+                    <h3 class="font-semibold mb-4">Perguntas Frequentes</h3>
+                    <button class="bg-green-default text-white w-24 py-1 px-4 rounded-full">Ver</button>
+                </div>
+                <img src="{{ url_for('static', path='assets/img/head.png') }}"
+                     alt="Imagem de pc"
+                     class="justify-self-end"
+                     height="70"
+                     width="70" />
+            </div>
+        </div>
+        <!-- Seção de Objetivo -->
+        <div class="bg-gray-100 shadow p-4 rounded-lg w-full lg:w-1/4">
+            <h3 class="font-semibold mb-4">Objetivo</h3>
+            <p class="text-gray-500">
+                Nosso objetivo é ajudar você a se proteger e a proteger sua comunidade contra essa doença, que pode ser evitada com ações simples no dia a dia.
+                Navegue pelo nosso site e descubra como pequenas mudanças de hábitos podem fazer uma grande diferença na luta contra a dengue
+            </p>
+        </div>
+    </div>
+</section>

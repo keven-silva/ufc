@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Previna +</title>
         <meta name="description" content="Pagina informativa sobre a dengue">
         <meta name="keywords" content="crise, doença, dengue">
         {% include "global/partials/_head.html" %}
+        <title>Previna +</title>
     </head>
-    <body>
-        {% block content %}
-        {% endblock content %}
+    <body class="bg-gray-100 font-sans antialiased">
+        <div class="flex">
+            {% include "global/partials/_sidebar.html" %}
+            <div class="ml-64 flex-1 flex flex-col">
+                {% include "global/partials/_header.html" %}
+                <main class="p-6">
+                    {% block content %}{% endblock %}
+                </main>
+            </div>
+        </div>
+        {% include "global/partials/scripts.html" %}
     </body>
 </html>

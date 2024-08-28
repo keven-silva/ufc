@@ -5,3 +5,11 @@
 .body {
     @apply antialiased relative bg-slate-900;
 }
+
+.bg-green-default {
+    background-color: #708f70;
+}
+
+.bg-green-light {
+    background-color: #dceadc;
+}
