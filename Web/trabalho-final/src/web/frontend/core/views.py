@@ -8,7 +8,7 @@ from src.utils.shortcuts import render
 router = APIRouter()
 
 
-@router.get("/dashboard", response_class=HTMLResponse, tags=["core"])
+@router.get("/", response_class=HTMLResponse, tags=["core"])
 async def get_dashboard_page(
     request: Request,
 ) -> HTMLResponse:
@@ -34,3 +34,31 @@ async def get_impact_page(
     request: Request,
 ) -> HTMLResponse:
     return render(request, "impact/pages/impact.html", context={})
+
+
+@router.get("/consequences", response_class=HTMLResponse, tags=["core"])
+async def get_consequence_page(
+    request: Request,
+) -> HTMLResponse:
+    return render(request, "consequence/page/consequence.html", context={})
+
+
+@router.get("/preventions", response_class=HTMLResponse, tags=["core"])
+async def get_prevention_page(
+    request: Request,
+) -> HTMLResponse:
+    return render(request, "prevention/pages/prevention.html", context={})
+
+
+@router.get("/testimonials", response_class=HTMLResponse, tags=["core"])
+async def get_testimonial_page(
+    request: Request,
+) -> HTMLResponse:
+    return render(request, "testimonial/pages/testimonial.html", context={})
+
+
+@router.get("/faq", response_class=HTMLResponse, tags=["core"])
+async def get_faq_page(
+    request: Request,
+) -> HTMLResponse:
+    return render(request, "faq/pages/faq.html", context={})
