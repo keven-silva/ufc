@@ -1,0 +1,80 @@
+<section class="p-4">
+  <!-- Seção de Título e Imagem -->
+  <div class="shadow-md bg-green-default p-4 rounded-lg mb-4 grid grid-cols-1 md:grid-cols-3 items-center">
+    <div class="flex flex-col justify-end p-3 col-span-2">
+      <p class="text-gray-100 mb-4 md:mb-10">23 de Agosto, 2024</p>
+      <h2 class="text-2xl md:text-4xl font-semibold">Causas da Dengue</h2>
+    </div>
+    <img src="{{ url_for('static', path='assets/img/inseto.png') }}"
+         alt="Imagem do inseto"
+         class="justify-self-center md:justify-self-end mt-4 md:mt-0"
+         style="max-height: 150px;
+                max-width: 150px" />
+  </div>
+  <!-- Seção de Informação -->
+  <div class="my-8 mx-3">
+    <h3 class="text-xl font-semibold">O que Causa a Dengue?</h3>
+    <p class="ml-2">
+      O transmissor (vetor) da dengue é o mosquito aedes aegypti, que precisa de água parada para se proliferar. O período do ano com maior transmissão são os meses mais chuvosos de cada região. No Ceará, a dengue continua a representar um desafio significativo para a saúde pública, com a incidência da doença apresentando variações ao longo dos anos.
+    </p>
+  </div>
+  <!-- Seção de Video -->
+  <div class="my-8 mx-3">
+    <div class="flex justify-center">
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/JZULW7ENc3I?si=Fd5JpTTf5zGnwr6i"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <p class="ml-2 mb-3">
+    Para compreender os fatores por trás desse cenário, é crucial examinar as causas que contribuem para o aumento dos casos:
+  </p>
+  <ul class="list-disc ml-6">
+    <li>
+      <strong>Mudanças climáticas:</strong> as mudanças climáticas têm desempenhado um papel crucial no aumento dos casos de dengue. O aquecimento global tem criado condições propícias para a proliferação do mosquito aedes aegypti, prolongando seu período de atividade e ampliando sua área de alcance;
+      <div class="my-8 mx-3">
+        <div class="flex justify-center">
+          <figure class="flex flex-col items-center text-center">
+            <img src="{{ url_for('static', path='assets/img/chuva.png') }}"
+                 alt="Imagem do Nível de Incidência"
+                 style="max-height: 600px;
+                        max-width: 600px" />
+          </figure>
+        </div>
+      </div>
+    </li>
+    <li>
+      <strong>Fenômeno El Niño:</strong> El Niño é um fenômeno climático cíclico que provoca aquecimento anormal das águas do Oceano Pacífico equatorial, afetando o clima global. Este aquecimento pode causar secas severas em algumas regiões, enquanto outras enfrentam chuvas intensas e enchentes. O fenômeno, observado em 2023, intensificou os efeitos das mudanças climáticas. O aumento das temperaturas e a variabilidade do clima proporcionaram um ambiente favorável para a reprodução do mosquito transmissor da dengue, contribuindo para o aumento dos casos;
+      <div class="my-8 mx-3">
+        <div class="flex justify-center">
+          <iframe width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/TEZDu1K43T8?si=-zc94I9U8rs-Xq1O"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+      <p class="ml-2">
+        O Brasil é um país com características geográficas e ambientais propícias à proliferação dos mosquitos vetores, devido ao seu clima tropical, sobretudo no verão, com aumento de chuvas combinado com aumento do calor. É esperado, portanto, um aumento dos casos no verão, cujos picos são alcançados no final de março e início de abril.
+      </p>
+      <div class="my-8 mx-3">
+        <div class="flex justify-center">
+          <figure class="flex flex-col items-center text-center">
+            <img src="{{ url_for('static', path='assets/img/agravantes.png') }}"
+                 alt="Imagem do Nível de Incidência"
+                 style="max-height: 600px;
+                        max-width: 600px" />
+          </figure>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
