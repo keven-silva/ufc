@@ -1,0 +1,78 @@
+<section class="p-4">
+  <!-- Seção de Título e Imagem -->
+  <div class="shadow-md bg-green-default p-4 rounded-lg mb-4 grid grid-cols-1 md:grid-cols-3 items-center">
+    <div class="flex flex-col justify-end p-3 col-span-2">
+      <p class="text-gray-100 mb-4 md:mb-10">23 de Agosto, 2024</p>
+      <h2 class="text-2xl md:text-4xl font-semibold">Depoimentos e Histórias</h2>
+    </div>
+    <img src="{{ url_for('static', path='assets/img/inseto.png') }}"
+         alt="Imagem do inseto"
+         class="justify-self-center md:justify-self-end mt-4 md:mt-0"
+         style="max-height: 150px;
+                max-width: 150px" />
+  </div>
+  <!-- Seção de Informação -->
+  <div class="my-8">
+    <h3 class="text-xl font-semibold">Depoimentos e Histórias</h3>
+    <p>
+      Nesta página, reunimos relatos de pessoas que enfrentaram de perto o impacto da dengue. Suas histórias de superação, aprendizado e mobilização mostram a importância de cada um de nós na luta contra essas doenças. Através de seus depoimentos, esperamos inspirar e conscientizar todos sobre a relevância da prevenção e do engajamento coletivo para proteger nossas comunidades. Conheça essas histórias e veja como pequenas ações podem fazer uma grande diferença.
+    </p>
+  </div>
+  <!-- Seção de Video -->
+  <div class="my-8">
+    <p class="mb-6 text-center">
+      <strong>A história de Chris Guerra, uma sobrevivente da dengue hemorrágica</strong>
+    </p>
+    <div class="flex justify-center">
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/x9xFhKYEKQs?si=OJR0eYcsfwkJ0g1i"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="my-8">
+    <p class="mb-6 text-center">
+      <strong>Depoimentos de Pessoas  que Tiveram Dengue na Cidade de Casa Branca</strong>
+    </p>
+    <div class="flex justify-center">
+      <iframe width="560"
+              height="315"
+              src="https://www.youtube.com/embed/2mpyVDiqhAw?si=QmVwiPsx1iZQLMv1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="my-8">
+    <h2 class="text-xl font-semibold mb-3">A Experiência de Casa Um</h2>
+    <h3 class="text-lg font-semibold mb-2">Medo de Reinfecção e Mudança de Hábitos</h3>
+    <p>
+      Joaquim Henrique Chaves dos Santos, 23 anos, Caseiro: "Os zumbidos no quarto escuro me causam desespero, com medo de ser outro mosquito da dengue. Comecei a sentir os sintomas durante o carnaval e descobri que, como meu patrão, também estava contaminado. A doença mudou minha rotina: uso repelentes constantemente e preciso borrifar veneno no quarto antes de dormir. Tenho muito medo de pegar dengue de novo, porque sei que ela pode ser fatal."
+      Aldenira Ferreira de Sousa, 31 anos, Empregada Doméstica,: "Desde que contraí dengue, minha saúde nunca mais foi a mesma. Além da febre alta, que chegou a 40°C, senti um gosto estranho de sangue na boca ao tomar remédios para gripe, que, na verdade, poderiam ter me matado. Agora, redobrei os cuidados em casa e acredito que, se todos fizessem a sua parte, acabaríamos com a dengue."
+      Ana Maria Miyamoto, 42 anos, Servidora Pública: "Depois de uma semana de cama, adotei o uso diário de repelentes, tanto na pele quanto nos aparelhos de tomada. Toda a família foi afetada pela dengue, e agora nossa maior preocupação é proteger nossa filha mais nova. Para evitar que os mosquitos a piquem, ela só usa calças compridas, mesmo nos dias mais quentes."
+      Merian Iwakami de Assis, 22 anos, Estudante: "Logo após a virada do ano, comecei a sentir mal-estar, náuseas, dores nas costas e manchas vermelhas pelo corpo. Achei que fosse intoxicação alimentar, mas minha mãe percebeu que eram sintomas de dengue. A febre muito alta me deu medo de ter convulsões. Desde então, protejo minha filha com telas sobre a cama, mas a falta de cuidado dos vizinhos ainda me preocupa."
+    </p>
+  </div>
+  <div class="my-8">
+    <h3 class="text-lg font-semibold mb-2">Primeiros Sintomas e Diagnóstico</h3>
+    <p>
+      Valquiria de Lima, 35 anos, Professora de Educação Física:  "Com quinze semanas de gestação, fui diagnosticada com dengue. Foi em 2015, mas oito anos depois, ainda lembro dos sintomas que me deixaram de cama por duas semanas. Foram cerca de quinze dias de febre muito alta, que fazia suar todo o corpo. Mas foi a dor no corpo que me levou a buscar atendimento médico; era horrível."
+      Andreia Dias, 19 anos, Universitári:  "Minha irmã foi diagnosticada com uma gripe mal curada, mas logo depois, tanto minha mãe quanto eu apresentamos os mesmos sintomas de dengue. Durante as férias, sentimos muita dor no corpo, mal-estar e cansaço. Agora, usamos repelente e estamos mais atentos à água parada em casa para evitar uma nova infecção."
+      Adriano Ricci, 43 anos, Executivo: "Não acreditava que a dengue chegaria à minha casa, mas fui surpreendido pelos sintomas no domingo. A febre alta e as dores me incapacitaram, e só tive certeza do diagnóstico no sexto dia. Desde então, redobramos os cuidados em casa, usando repelentes diariamente e eliminando possíveis focos de mosquito para evitar uma reincidência ainda mais perigosa."
+    </p>
+  </div>
+  <!-- Botão Flutuante -->
+  <button id="testimonyButton"
+          class="fixed bottom-5 right-5 bg-green-default text-white rounded-full p-4 shadow-lg hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+    <i class="fas fa-plus"></i>
+    Depoimento
+  </button>
+  {% include "testimony/partials/_modal.html" %}
+</section>
+<script src="{{ url_for('static', path='js/script.js') }}"></script>

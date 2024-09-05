@@ -1,0 +1,53 @@
+<!-- Modal -->
+<div id="testimonyModal"
+     class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+  <div class="bg-gray-100 p-6 rounded-xl shadow-lg w-full max-w-4xl sm:w-4/5 lg:w-4/5 relative mx-4">
+    <!-- Cabeçalho do Modal -->
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold">Sua Vez</h2>
+      <button id="closeModalButton"
+              class="text-gray-500 hover:text-gray-800 text-xl font-semibold">&times;</button>
+    </div>
+    <!-- Formulário dentro do Modal -->
+    <form>
+      <div class="flex items-center mb-4">
+        <i class="fas fa-pen text-gray-500 mr-2"></i>
+        <input type="text"
+               placeholder="Título"
+               class="w-full border-gray-300 rounded p-2">
+      </div>
+      <div class="flex items-center mb-4">
+        <i class="fas fa-envelope text-gray-500 mr-2"></i>
+        <input type="email"
+               placeholder="E-mail"
+               class="w-full border-gray-300 rounded p-2">
+      </div>
+      <div class="flex items-center mb-4">
+        <i class="fas fa-map-marker-alt text-gray-500 mr-2"></i>
+        <input type="text"
+               placeholder="Localização"
+               class="w-full border-gray-300 rounded p-2">
+      </div>
+      <div class="flex flex-wrap items-center mb-4 space-y-2">
+        <div class="flex items-center w-full md:w-1/2">
+          <i class="fas fa-clock text-gray-500 mr-2"></i>
+          <input type="date" class="border-gray-300 rounded p-2 w-full mr-2">
+          <input type="time" class="border-gray-300 rounded p-2 w-full">
+        </div>
+        <div class="flex items-center w-full md:w-1/2 mt-2 md:mt-0">
+          <i class="fas fa-clock text-gray-500 mr-2"></i>
+          <input type="date" class="border-gray-300 rounded p-2 w-full mr-2">
+          <input type="time" class="border-gray-300 rounded p-2 w-full mr-2">
+        </div>
+      </div>
+      <div class="mb-4">
+        <textarea placeholder="Deixe seu depoimento e compartilhe sua história de superação e engajamento na luta contra a dengue. Sua experiência pode inspirar e ajudar outras pessoas!"
+                  class="w-full border-gray-300 rounded p-2"></textarea>
+      </div>
+      <div class="flex justify-end">
+        <button type="submit"
+                class="bg-green-default text-white px-4 py-2 rounded-lg hover:bg-green-800">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
