@@ -1,0 +1,150 @@
+<section class="p-4">
+  <!-- Seção de Título e Imagem -->
+  <div class="shadow-md bg-green-default p-4 rounded-lg mb-4 grid grid-cols-1 md:grid-cols-3 items-center">
+    <div class="flex flex-col justify-end p-3 col-span-2">
+      <p class="text-gray-100 mb-4 md:mb-10">23 de Agosto, 2024</p>
+      <h2 class="text-2xl md:text-4xl font-semibold">Previna+</h2>
+    </div>
+    <img src="{{ url_for('static', path='assets/img/inseto.png') }}"
+         alt="Imagem do inseto"
+         class="justify-self-center md:justify-self-end mt-4 md:mt-0"
+         style="max-height: 150px;
+                max-width: 150px" />
+  </div>
+  <!-- Seção de Informação -->
+  <div class="my-8">
+    <h3 class="text-xl font-semibold">FAQ sobre a Dengue</h3>
+    <p>
+      Bem-vindo à nossa página de Perguntas Frequentes (FAQ) sobre a dengue. Aqui, você encontrará informações essenciais para entender, prevenir e lidar com essa doença transmitida pelo mosquito Aedes aegypti. Sabemos que a dengue é uma preocupação de saúde pública, especialmente em regiões tropicais, onde as condições climáticas favorecem a proliferação do mosquito. Nesta página, abordamos as principais dúvidas sobre os sintomas, diferenças em relação a outras doenças como a Covid-19, medidas de prevenção, e o que fazer em caso de suspeita de infecção. Nosso objetivo é fornecer orientações claras e úteis para ajudá-lo a proteger a si mesmo e sua família.
+    </p>
+  </div>
+  <!-- Seção de Perguntas -->
+  <div class="ml-4">
+    <ul>
+      <li class="list-decimal font-semibold my-2">Como saber se é dengue ou Covid-19?</li>
+      <p>
+        Os sintomas respiratórios são a principal diferença entre dengue e Covid-19. O infectologista Alexandre Naime Barbosa, professor da Unesp e coordenador científico da Sociedade Brasileira de Infectologia (SBI), explica que um paciente com Covid-19 geralmente apresenta sintomas do trato respiratório alto, como tosse, espirros, dor de garganta, perda de olfato e paladar. Isso ocorre porque o Sars-CoV-2 afeta as células dessa região. Já a dengue não causa esses sintomas e tende a apresentar exantema, que são manchas avermelhadas pelo corpo, algo que não ocorre na Covid-19.
+      </p>
+      <li class="list-decimal font-semibold my-2">Tenho sintomas de dengue, quando devo procurar o hospital?</li>
+      <p>
+        Se você suspeita que está com dengue e apresenta sintomas, é recomendado procurar atendimento médico o quanto antes, seja no hospital ou na Unidade Básica de Saúde (UBS). O infectologista Julio Croda, pesquisador da Fundação Oswaldo Cruz (Fiocruz) e professor da Universidade Federal de Mato Grosso do Sul (UFMS), enfatiza que é essencial o acompanhamento de uma equipe de saúde para monitorar sinais de alerta que possam indicar a gravidade da doença e a possível necessidade de internação.
+      </p>
+      <li class="list-decimal font-semibold my-2">Sobre os sintomas da dengue</li>
+      <p>
+        a) Quanto tempo duram os sintomas da dengue?
+        Os sintomas da dengue podem durar até duas semanas, mas, em geral, começam a diminuir após cerca de 7 dias. No entanto, isso pode variar de pessoa para pessoa, então é importante estar atento e procurar orientação médica.
+      </p>
+      <p>
+        b) Dá para pegar dengue mais de uma vez?
+        Sim, infelizmente é possível. Existem quatro tipos diferentes do vírus da dengue, e uma pessoa pode ser infectada por cada um deles. Por isso, é fundamental continuar com as medidas de prevenção.
+      </p>
+      <p>
+        c) A dengue pode evoluir para algo mais sério?
+        Sim, a dengue pode evoluir para formas mais graves, como a dengue hemorrágica ou a síndrome do choque da dengue. Essas são complicações sérias que exigem atenção médica imediata.
+      </p>
+      <li class="list-decimal font-semibold my-2">Como identificar focos de mosquito?</li>
+      <ul>
+        <li class="list-disc my-1">Vasos de plantas: Certifique-se de que os pratinhos de plantas não acumulam água.</li>
+        <li class="list-disc my-1">
+          Caixas d'água e cisternas: Mantenha-as bem vedadas para evitar que o mosquito tenha acesso.
+        </li>
+        <li class="list-disc my-1">
+          Lixo e recicláveis: Armazene o lixo em sacos fechados e mantenha recicláveis em local seco e protegido.
+        </li>
+      </ul>
+      <li class="list-decimal font-semibold my-2">Tratamento da Dengue</li>
+      <p>
+        a) Qual é o tratamento para a dengue?
+        <ul class="ml-5">
+          <li class="list-disc my-1">Hidratação: Beber bastante líquido é fundamental para evitar complicações.</li>
+          <li class="list-disc my-1">
+            Medicamentos: O tratamento é sintomático, ou seja, visa aliviar os sintomas. Evite o uso de medicamentos que contenham ácido acetilsalicílico (AAS), pois podem aumentar o risco de hemorragias.
+          </li>
+          <li class="list-disc my-1">Repouso: Descansar é importante para a recuperação.</li>
+        </ul>
+      </p>
+      <p class="mt-5">
+        b) Quando a dengue requer hospitalização?
+        <ul class="ml-5">
+          <li class="list-disc my-1">
+            Sinais de alerta como dor abdominal intensa, vômitos persistentes, sangramentos, sonolência ou irritabilidade indicam a necessidade de hospitalização imediata.
+          </li>
+        </ul>
+      </p>
+      <li class="list-decimal font-semibold my-2">Diagnóstico da Dengue</li>
+      <p>
+        a) Como a dengue é diagnosticada?
+        <ul class="ml-5">
+          <li class="list-disc my-1">
+            Exames laboratoriais: A confirmação do diagnóstico é feita por meio de exames de sangue que detectam a presença do vírus ou anticorpos específicos.
+          </li>
+          <li class="list-disc my-1">
+            Avaliação clínica: O médico também faz uma avaliação dos sintomas e do histórico do paciente para determinar a possibilidade de dengue.
+          </li>
+        </ul>
+      </p>
+      <li class="list-decimal font-semibold my-2">Complicações da Dengue</li>
+      <p>a) Quais são as complicações mais graves da dengue?</p>
+      <ul>
+        <li class="list-disc ml-4">
+          Dengue hemorrágica: Caracterizada por sangramentos, queda abrupta de plaquetas e, em casos severos, pode levar ao choque.
+        </li>
+        <li class="list-disc ml-4">
+          Síndrome do choque da dengue: Uma forma grave que pode causar falência de múltiplos órgãos e requer atendimento médico urgente.
+        </li>
+      </ul>
+      <li class="list-decimal font-semibold my-2">Mitos e Verdades sobre a Dengue</li>
+      <p class="mb-2">a) Tomar vitamina B afasta os mosquitos?</p>
+      <ul>
+        <li class="list-disc ml-4 mb-2">
+          Mito. Não há evidências científicas de que a vitamina B afaste mosquitos. A prevenção eficaz inclui o uso de repelentes e eliminação de focos de água parada.
+        </li>
+      </ul>
+      <p class="mb-2">b) Apenas áreas urbanas são afetadas pela dengue?</p>
+      <ul>
+        <li class="list-disc ml-4 mb-2">
+          Mito. A dengue pode ocorrer tanto em áreas urbanas quanto rurais, especialmente em regiões onde há proliferação do mosquito Aedes aegyp
+        </li>
+      </ul>
+    </ul>
+  </div>
+  <div class="my-8">
+    <h3 class="text-lg font-semibold mb-3">Sobre a Vacina</h3>
+    <p>
+      Quem pega dengue uma vez pode ser reinfectado depois por outro subtipo do vírus. Quando isso acontece, a pessoa tem risco maior de desenvolver uma doença grave. Por isso, a vacina deve proteger contra os quatro tipos da dengue, que é o caso do imunizante do Butantan.
+      Outra vantagem é que a vacina pode ser administrada em dose única – um diferencial entre todos os imunizantes atualmente disponíveis. Composta pelos quatro vírus atenuados, ela induz a produção de anticorpos sem causar a doença e com poucas reações adversas.
+    </p>
+  </div>
+  <div class="my-8 ml-10">
+    <h3 class="text-lg font-semibold mb-3">Na fase 1 do ensaio clínico:</h3>
+    <ul>
+      <li class="list-disc ml-8">100% de geração de anticorpos em pessoas que já tiveram dengue</li>
+      <li class="list-disc ml-8">90% de geração de anticorpos em indivíduos que nunca haviam tido contato com o vírus</li>
+      <li class="list-disc ml-8">Fonte: Human Vaccines & Immunotherapeutics</li>
+    </ul>
+  </div>
+  <div class="my-8 ml-10">
+    <h3 class="text-lg font-semibold mb-3">Na fase 2 do ensaio clínico, os voluntários receberam duas doses:</h3>
+    <ul>
+      <li class="list-disc ml-8">100% de taxa de soroconversão após a primeira dose em pessoas que já tiveram dengue</li>
+      <li class="list-disc ml-8">92,6% de taxa de soroconversão em indivíduos que nunca foram infectados</li>
+      <li class="list-disc ml-8">Fonte: The Lancet</li>
+      <li class="list-disc ml-8">80% dos voluntários produziram anticorpos contra os quatro sorotipos.</li>
+    </ul>
+  </div>
+  <div class="my-8 ml-10">
+    <h3 class="text-lg font-semibold mb-3">Na fase 3 do ensaio clínico:</h3>
+    <ul>
+      <li class="list-disc ml-8">79,6% de eficácia geral</li>
+      <li class="list-disc ml-8">89,2% de eficácia naqueles que já tinham contraído dengue</li>
+      <li class="list-disc ml-8">73,5% de eficácia em quem nunca teve contato com o vírus</li>
+      <li class="list-disc ml-8">Fonte: The New England Journal of Medicine</li>
+    </ul>
+  </div>
+  <div class="my-8">
+    <h3 class="text-lg font-semibold mb-3">Segurança</h3>
+    <p>
+      Das mais de 10 mil pessoas que receberam o imunizante na fase 3, apenas três (menos de 0,1%) apresentaram eventos adversos graves, e todos se recuperaram totalmente. A frequência de eventos adversos foi semelhante entre as três faixas etárias (2-6, 7-17 e 18-59 anos).
+    </p>
+  </div>
+</section>

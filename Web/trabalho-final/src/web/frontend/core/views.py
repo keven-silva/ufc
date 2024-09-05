@@ -54,7 +54,7 @@ async def get_prevention_page(
 async def get_testimonial_page(
     request: Request,
 ) -> HTMLResponse:
-    return render(request, "testimonial/pages/testimonial.html", context={})
+    return render(request, "testimony/pages/testimony.html", context={})
 
 
 @router.get("/faq", response_class=HTMLResponse, tags=["core"])
