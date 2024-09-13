@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi.requests import Request
 from fastapi.responses import HTMLResponse
 
-from src.utils.shortcuts import render
+from src.utils.shortcuts import render, is_htmx
 
 
 router = APIRouter()
@@ -47,6 +47,8 @@ async def get_consequence_page(
 async def get_prevention_page(
     request: Request,
 ) -> HTMLResponse:
+    if is_htmx(request):
+        return render(request, "prevention/partials/_main-content.html", context={})
     return render(request, "prevention/pages/prevention.html", context={})
 
 
@@ -57,8 +59,14 @@ async def get_testimonial_page(
     return render(request, "testimony/pages/testimony.html", context={})
 
 
-@router.get("/faq", response_class=HTMLResponse, tags=["core"])
+@router.get(
+    "/faq",
+    response_class=HTMLResponse,
+    tags=["core"],
+)
 async def get_faq_page(
     request: Request,
 ) -> HTMLResponse:
+    if is_htmx(request):
+        return render(request, "faq/partials/_main-content.html", context={})
     return render(request, "faq/pages/faq.html", context={})

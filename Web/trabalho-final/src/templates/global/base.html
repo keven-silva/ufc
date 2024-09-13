@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
     <head>
-        <meta name="description" content="Pagina informativa sobre a dengue">
-        <meta name="keywords" content="crise, doença, dengue">
+        <meta name="description" content="Pagina informativa sobre a dengue" />
+        <meta name="keywords" content="crise, doença, dengue" />
         {% include "global/partials/_head.html" %}
         <title>Previna +</title>
     </head>
@@ -11,9 +11,8 @@
             {% include "global/partials/_sidebar.html" %}
             <div class="ml-64 flex-1 flex flex-col">
                 {% include "global/partials/_header.html" %}
-                <main class="p-6">
-                    {% block content %}
-                    {% endblock content %}
+                <main class="p-6" id="main-content">
+                    {% block content %} {% endblock content %}
                 </main>
             </div>
         </div>

@@ -1,58 +1,105 @@
 <section>
     <!-- Seção de Boas-vindas -->
-    <div class="bg-green-default p-4 rounded-lg mb-4 grid grid-cols-1 md:grid-cols-3 items-center">
+    <div
+        class="bg-green-default p-4 rounded-lg mb-4 grid grid-cols-1 md:grid-cols-3 items-center"
+    >
         <div class="flex flex-col justify-end p-3 col-span-2">
             <p class="text-gray-100 mb-4 md:mb-10">23 de Agosto, 2024</p>
-            <h2 class="text-2xl md:text-4xl font-semibold">Bem-vindo ao Previna+</h2>
-            <p class="text-gray-100 mt-2">O Previna+ é uma página dedicada à conscientização e ao combate à dengue...</p>
+            <h2 class="text-2xl md:text-4xl font-semibold">
+                Bem-vindo ao Previna+
+            </h2>
+            <p class="text-gray-100 mt-2">
+                O Previna+ é uma página dedicada à conscientização e ao combate
+                à dengue...
+            </p>
         </div>
-        <img src="{{ url_for('static', path='assets/img/inseto.png') }}"
-             alt="Imagem de inseto"
-             class="justify-self-center md:justify-self-end mt-4 md:mt-0"
-             style="max-height: 200px;
-                    max-width: 200px" />
+        <img
+            src="{{ url_for('static', path='assets/img/inseto.png') }}"
+            alt="Imagem de inseto"
+            class="justify-self-center md:justify-self-end mt-4 md:mt-0"
+            style="max-height: 200px; max-width: 200px"
+        />
     </div>
     <!-- Seção de Informação -->
     <div class="my-8">
         <h3 class="text-xl font-semibold">Juntos Contra a Dengue</h3>
         <p>
-            O Previna+ é uma página dedicada à conscientização e ao combate à dengue. Aqui, você encontrará informações essenciais para entender de forma simples e clara o problema da dengue, suas causas, os impactos que essa doença traz à saúde pública, as graves consequências para a população, e, principalmente, as formas eficazes de prevenção. Juntos, podemos prevenir e salvar vidas.
+            O Previna+ é uma página dedicada à conscientização e ao combate à
+            dengue. Aqui, você encontrará informações essenciais para entender
+            de forma simples e clara o problema da dengue, suas causas, os
+            impactos que essa doença traz à saúde pública, as graves
+            consequências para a população, e, principalmente, as formas
+            eficazes de prevenção. Juntos, podemos prevenir e salvar vidas.
         </p>
     </div>
     <!-- Seção de Cards -->
     <div class="flex flex-col lg:flex-row justify-around gap-8 lg:gap-4">
         <!-- Cards de Prevenção e Perguntas Frequentes -->
-        <div class="flex flex-col md:flex-row items-stretch gap-4 mb-12 w-full lg:w-3/4">
+        <div
+            class="flex flex-col md:flex-row items-stretch gap-4 mb-12 w-full lg:w-3/4"
+        >
             <!-- Card 1: Saiba como prevenir -->
-            <div class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full md:w-1/2 self-end">
+            <div
+                class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full md:w-1/2 self-end"
+            >
                 <div>
-                    <h3 class="font-semibold mb-2 md:mb-6">Saiba como prevenir</h3>
-                    <button class="bg-green-default text-white w-24 py-1 px-4 rounded-full">Ver</button>
+                    <h3 class="font-semibold mb-2 md:mb-6">
+                        Saiba como prevenir
+                    </h3>
+                    <button
+                        class="bg-green-default text-white w-24 py-1 px-4 rounded-full"
+                        hx-get="{{ url_for('get_prevention_page') }}"
+                        hx-target="#main-content"
+                        hx-swap="innerHTML"
+                        hx-push-url="true"
+                        hx-trigger="click"
+                    >
+                        Ver
+                    </button>
                 </div>
-                <img src="{{ url_for('static', path='assets/img/pc.png') }}"
-                     alt="Imagem de pc"
-                     class="justify-self-end"
-                     style="max-height: 70px;
-                            max-width: 70px" />
+                <img
+                    src="{{ url_for('static', path='assets/img/pc.png') }}"
+                    alt="Imagem de pc"
+                    class="justify-self-end"
+                    style="max-height: 70px; max-width: 70px"
+                />
             </div>
             <!-- Card 2: Perguntas Frequentes -->
-            <div class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full md:w-1/2 self-end">
+            <div
+                class="grid grid-cols-2 bg-green-light shadow p-4 rounded-lg h-32 w-full md:w-1/2 self-end"
+            >
                 <div>
-                    <h3 class="font-semibold mb-2 md:mb-4">Perguntas Frequentes</h3>
-                    <button class="bg-green-default text-white w-24 py-1 px-4 rounded-full">Ver</button>
+                    <h3 class="font-semibold mb-2 md:mb-4">
+                        Perguntas Frequentes
+                    </h3>
+                    <button
+                        class="bg-green-default text-white w-24 py-1 px-4 rounded-full"
+                        hx-get="{{ url_for('get_faq_page') }}"
+                        hx-target="#main-content"
+                        hx-swap="innerHTML"
+                        hx-push-url="true"
+                        hx-trigger="click"
+                    >
+                        Ver
+                    </button>
                 </div>
-                <img src="{{ url_for('static', path='assets/img/head.png') }}"
-                     alt="Imagem de pc"
-                     class="justify-self-end"
-                     style="max-height: 60px;
-                            max-width: 60px" />
+                <img
+                    src="{{ url_for('static', path='assets/img/head.png') }}"
+                    alt="Imagem de pc"
+                    class="justify-self-end"
+                    style="max-height: 60px; max-width: 60px"
+                />
             </div>
         </div>
         <!-- Card de Objetivo -->
         <div class="bg-gray-100 shadow p-4 rounded-lg w-full lg:w-1/4">
             <h3 class="text-lg md:text-xl font-semibold mb-4">Objetivo</h3>
             <p class="text-gray-500 text-sm md:text-base">
-                Nosso objetivo é ajudar você a se proteger e a proteger sua comunidade contra essa doença, que pode ser evitada com ações simples no dia a dia. Navegue pelo nosso site e descubra como pequenas mudanças de hábitos podem fazer uma grande diferença na luta contra a dengue.
+                Nosso objetivo é ajudar você a se proteger e a proteger sua
+                comunidade contra essa doença, que pode ser evitada com ações
+                simples no dia a dia. Navegue pelo nosso site e descubra como
+                pequenas mudanças de hábitos podem fazer uma grande diferença na
+                luta contra a dengue.
             </p>
         </div>
     </div>
