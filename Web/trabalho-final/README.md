@@ -20,19 +20,24 @@ Para iniciar o projeto, siga os passos abaixo:
       source nome_do_ambiente/bin/activate
       ```
 
-3. Instale o Poetry, que é uma ferramenta de gerenciamento de dependências. Você pode instalá-lo usando o seguinte comando:
+3. Caso o python seja na versão 12 ou maior instale o **Poetry**, que é uma ferramenta de gerenciamento de dependências. Você pode instalá-lo usando o seguinte comando:
 
     ```
     pip install poetry
     ```
-
-4. Navegue até o diretório raiz do projeto e execute o seguinte comando para instalar as dependências:
+4. Caso o python seja uma versão menor que 12 instale usando o **pip**
+    ```
+    pip install -r requirements.txt
+    ```
+5. Navegue até o diretório raiz do projeto e execute o seguinte comando para instalar as dependências:
 
     ```
     poetry install
     ```
 
-5. Após a instalação das dependências, você pode iniciar o projeto executando o seguinte comando:
+6. Copie as variaveis do arquivo **.env.example** para um novo arquivo **.env**
+
+7. Após a instalação das dependências, você pode iniciar o projeto executando o seguinte comando:
 
     ```
     python -m src

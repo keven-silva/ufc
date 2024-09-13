@@ -4,45 +4,45 @@
              alt="Previna+"
              class="h-10 bg-none bg-transparent w-30 h-24 rounded-lg">
     </div>
-    <nav class="mx-10">
-        <ul>
-            <li>
-                <a href="/" class="block py-2">
+    <nav class="mx-7">
+        <ul class="grid gap-1">
+            <li class="{% if request.url.path == '/' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/" class="block py-2 px-4">
                     <i class="fa-solid fa-table-columns mr-2"></i>Dashboard
                 </a>
             </li>
-            <li>
-                <a href="/problems" class="block py-2">
+            <li class="{% if request.url.path == '/problems' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/problems" class="block py-2 px-4">
                     <i class="fa-solid fa-table-columns mr-2"></i>O Problema
                 </a>
             </li>
-            <li>
-                <a href="/causes" class="block py-2">
+            <li class="{% if request.url.path == '/causes' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/causes" class="block py-2 px-4">
                     <i class="fa-solid fa-pen mr-2"></i>Causas
                 </a>
             </li>
-            <li>
-                <a href="/impacts" class="block py-2">
+            <li class="{% if request.url.path == '/impacts' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/impacts" class="block py-2 px-4">
                     <i class="fa-regular fa-note-sticky mr-2"></i>Impacto
                 </a>
             </li>
-            <li>
-                <a href="/consequences" class="block py-2">
+            <li class="{% if request.url.path == '/consequences' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/consequences" class="block py-2 px-4">
                     <i class="fa-regular fa-file-excel mr-2"></i>Consequências
                 </a>
             </li>
-            <li>
-                <a href="/preventions" class="block py-2">
+            <li class="{% if request.url.path == '/preventions' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/preventions" class="block py-2 px-4">
                     <i class="fa-solid fa-table-columns mr-2"></i>Prevenção
                 </a>
             </li>
-            <li>
-                <a href="/testimonials" class="block py-2">
+            <li class="{% if request.url.path == '/testimonials' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/testimonials" class="block py-2 px-4">
                     <i class="fa-regular fa-message mr-2"></i>Depoimentos
                 </a>
             </li>
-            <li class="mt-10">
-                <a href="/faq" class="block py-2">
+            <li class="mt-10 {% if request.url.path == '/faq' %}bg-green-800 rounded-full{% endif %}">
+                <a href="/faq" class="block py-2 px-4">
                     <i class="fa-solid fa-circle-question mr-2"></i>FAQ
                 </a>
             </li>
